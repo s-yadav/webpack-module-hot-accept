@@ -12,9 +12,11 @@ module.exports = function(source, map) {
   return ''
     + source + "\n"
     + "\n"
-    + 'module.hot.accept(function(err) {' + "\n"
-      + 'if (err) {' + "\n"
-        + 'console.error(err);' + "\n" 
-      + '}' + "\n"
-    + '});' + "\n";
+    + 'if (module.hot) {'
+      + 'module.hot.accept(function(err) {' + "\n"
+        + 'if (err) {' + "\n"
+          + 'console.error(err);' + "\n" 
+        + '}' + "\n"
+      + '});' + "\n"
+    + '}' + "\n";
 };
